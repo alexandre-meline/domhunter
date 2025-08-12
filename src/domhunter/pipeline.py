@@ -9,7 +9,7 @@ from .models import DomainResult
 from .utils import ensure_dir, write_csv, write_json
 from .providers.internetbs import check_availability
 from .providers.google_cse import is_indexed
-from .providers.wayback import list_snapshots, download_screenshots
+from .providers.wayback_wbp import list_snapshots, download_screenshots
 
 
 async def process_domain(
@@ -35,7 +35,7 @@ async def process_domain(
             return res
 
         try:
-            snaps = await list_snapshots(http_client, domain, limit=50)
+            snaps = await list_snapshots(http_client, domain, limit=50)  # plus de http_client ici
             if snaps:
                 ddir = out_screens_dir / domain
                 res.wayback_screenshots = await download_screenshots(

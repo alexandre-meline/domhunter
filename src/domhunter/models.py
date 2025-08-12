@@ -9,7 +9,8 @@ class DomainResult:
     available: Optional[bool] = None
     indexed_google: Optional[bool] = None
     wayback_screenshots: int = 0
+    wayback_html_pages: int = 0  # Nouveau champ
     notes: str = ""
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         return asdict(self)

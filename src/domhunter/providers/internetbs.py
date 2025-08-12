@@ -22,11 +22,11 @@ async def check_availability(
         r = await client.get(url, params=params, timeout=20)
         r.raise_for_status()
         data = r.json()
-        text = str(data).lower()
+        status = data.get("status", "").lower()
         # Heuristique tolérante selon variantes de réponses
-        if '"available":"yes"' in text or '"isavailable":true' in text or '"status":"available"' in text:
+        if status == "available":
             return True
-        if '"available":"no"' in text or '"isavailable":false' in text or '"status":"taken"' in text:
+        if status == "unavailable":
             return False
         # Fallback
         return None

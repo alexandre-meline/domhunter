@@ -13,3 +13,6 @@ dist/
 .vscode/
 .idea/
 .env
+
+# Output files
+output/
