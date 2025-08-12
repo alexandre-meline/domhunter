@@ -2,7 +2,7 @@
 name = "domhunter"
 version = "0.1.0"
 description = "Domain availability + Google index check + Wayback screenshots pipeline"
-authors = ["Your Name <you@example.com>"]
+authors = ["Ton Nom <toi@example.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "domhunter", from = "src" }]
